@@ -1,91 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Find Max!</title>
-    <link rel="stylesheet" href="./navbar.css">
+    <!-- <link rel="stylesheet" href="./navbar.css"> -->
+    <link rel="stylesheet" href="./homeprob.css">
     <link rel="stylesheet" href="./prob.css">
 </head>
-    <div class="topnav">
-        <a href="./homepage">Home</a>
-    </div>
+<div class="topnav">
+    <a href="./homepage">Home</a>
+    <img id="darkModeToggle" src="./light-mode-icon.png" width="40px" height="28px" style="margin:auto;"
+        style="padding-left: 1150px;" }alt="Dark Mode Toggle" onclick="toggleDarkMode()">
+</div>
 
-    <div class="statement">
-        <h2 id="problemStatement">Find maximum element!</h2>
-        <p class="limits">Time Limit : 1 second</p>
-        <p class="limits">Memory Limit : 256 MB</p>
+<div class="statement">
+    <h2 id="problemStatement">Find maximum element!</h2>
+    <p class="limits">Time Limit : 1 second</p>
+    <p class="limits">Memory Limit : 256 MB</p>
 
-        <br>
+    <br>
 
-        <p>You are given an array containing n integers.Find the maximum element among them.</p>
-        
-        <h3 class="io">Input</h3>
-        <p>In the first line , you are given a positive integer n. The second line contains n integers belonging to the array.</p>
-        
-        <h3 class="io">Output</h3>
-        <p>Output a single integer x, which is the maximum element in the given array</p>
-    </div>
+    <p>You are given an array containing n integers.Find the maximum element among them.</p>
 
-        <br>
-        
-        <div class="submitfile">
-            <form enctype="multipart/form-data">
-                <input type="file" id="myFile" name="code">
-                <button type="submit" id="submitbutton">Submit C++ File</button>
-            </form>
-        </div>
+    <h3 class="io">Input</h3>
+    <p>In the first line , you are given a positive integer n. The second line contains n integers belonging to the
+        array.</p>
 
-        <div class="verdict">
-            <p>Verdict : <span id="verdict">-</span></p>
-        </div>
+    <h3 class="io">Output</h3>
+    <p>Output a single integer x, which is the maximum element in the given array</p>
+</div>
 
-        <script>
-            const submitButton = document.getElementById('submitbutton');
-            const verdictSpan = document.getElementById('verdict');
-          
-            submitButton.addEventListener('click', async (event) => {
-              event.preventDefault();
-              const formData = new FormData();
-              formData.append('code', document.getElementById('myFile').files[0]);
-          
-              const response = await fetch('/prob3Submit', {
-                method: 'POST',
-                body: formData,
-              });
-          
-              const data = await response.json();
-              verdictSpan.textContent = data.verdict;
-              if(data.verdict=="AC")
-                verdictSpan.style.color = 'green';
-              console.log(data.verdict);
-            });
-          </script> 
+<br>
 
-          <br>
-          
-          <h3 class="io">Sample Solution</h3>
-          <button id="downloadButton">Download</button>
+<div class="submitfile">
+    <form enctype="multipart/form-data">
+        <input type="file" id="myFile" name="code">
+        <button type="submit" id="submitbutton">Submit C++ File</button>
+    </form>
+</div>
 
-          <script>
-            // JavaScript code to handle download button click
-            document.getElementById("downloadButton").addEventListener("click", function() {
-                downloadFile();
-            });
-    
-            function downloadFile() {
-                var fileUrl = './sample3.cpp';
-                var fileName = 'findmax.cpp';
-    
-                var a = document.createElement('a');
-                a.href = fileUrl;
-                a.download = fileName;
-                a.click();
-            }
-        </script>
-    
+<div class="verdict">
+    <p>Verdict : <span id="verdict">-</span></p>
+</div>
+
+<script>
+    const submitButton = document.getElementById('submitbutton');
+    const verdictSpan = document.getElementById('verdict');
+
+    submitButton.addEventListener('click', async (event) => {
+        event.preventDefault();
+        const formData = new FormData();
+        formData.append('code', document.getElementById('myFile').files[0]);
+
+        const response = await fetch('/prob3Submit', {
+            method: 'POST',
+            body: formData,
+        });
+
+        const data = await response.json();
+        verdictSpan.textContent = data.verdict;
+        if (data.verdict == "AC")
+            verdictSpan.style.color = 'green';
+        console.log(data.verdict);
+    });
+</script>
+
+<br>
+
+<h3 class="io">Sample Solution</h3>
+<button id="downloadButton">Download</button>
+
+<script>
+    // JavaScript code to handle download button click
+    document.getElementById("downloadButton").addEventListener("click", function () {
+        downloadFile();
+    });
+
+    function downloadFile() {
+        var fileUrl = './sample3.cpp';
+        var fileName = 'findmax.cpp';
+
+        var a = document.createElement('a');
+        a.href = fileUrl;
+        a.download = fileName;
+        a.click();
+    }
+
+    const darkModeToggle = document.getElementById("darkModeToggle");
+    darkModeToggle.addEventListener("click", () => {
+        document.body.classList.toggle("dark-mode");
+        document.querySelector(".topnav").classList.toggle("dark-mode");
+        document.querySelectorAll(".problem").forEach(el => el.classList.toggle("dark-mode"));
+        document.querySelectorAll(".submitButton").forEach(el => el.classList.toggle("dark-mode"));
+        document.querySelectorAll(".problemName").forEach(el => el.classList.toggle("dark-mode"));
+    });
+</script>
+
 </body>
+
 </html>
-
-
-
