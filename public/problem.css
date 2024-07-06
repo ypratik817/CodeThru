@@ -1,32 +1,163 @@
-.problem:hover .submitButton{
-    background-color: green;
-    color:aliceblue;
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #121212;
+    color: #e0e0e0;
+    margin: 0;
+    padding: 0;
 }
 
-.problem {
-    color: black;
-    font-family: sans-serif;
-    font-size: 20px;
-    width: 93%;
-    margin-left: 20px;
-    padding-left: 20px;
-    margin-right: 20px;
-    padding-right: 20px;
+.topnav {
+    background-color: #1f1f1f;
+    overflow: hidden;
+    border-bottom: 3px solid #00c853;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.topnav a {
+    float: left;
+    display: block;
+    color: #e0e0e0;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.topnav a:hover {
+    background-color: #00c853;
+    color: #121212;
+}
+
+/* prob.css */
+.statement {
+    background-color: #1f1f1f;
+    margin: 20px auto;
+    padding: 30px;
+    max-width: 800px;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+}
+
+.statement h2, .statement h3 {
+    color: #00c853;
+    border-bottom: 1px solid #00c853;
+    padding-bottom: 8px;
+}
+
+.statement p, .limits {
+    font-size: 1.1em;
+    line-height: 1.6em;
+}
+
+.limits {
+    color: #bdbdbd;
+}
+
+.io {
+    color: #00c853;
     margin-top: 20px;
-    margin-bottom: 20px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    display: flex;
-    flex-direction: row ;
-    justify-content: space-between;
-    border-style: solid;
-    border-width: 2px;
-    border-radius: 10px;
-    border-color: gray;
-    background-color:bisque;
+    border-bottom: 1px solid #00c853;
+    padding-bottom: 8px;
 }
 
-.submitButton {
-    width: 25%;
-    font-size: 20px;
+.submitfile {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.submitfile form {
+    background-color: #1f1f1f;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+}
+
+.submitfile input[type="file"] {
+    padding: 10px;
+    border: none;
+    background-color: #00c853;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: background-color 0.3s;
+}
+
+.submitfile input[type="file"]:hover {
+    background-color: #00a044;
+}
+
+#submitbutton {
+    background-color: #00c853;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+#submitbutton:hover {
+    background-color: #00a044;
+}
+
+.verdict {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#verdict {
+    font-weight: bold;
+}
+
+#downloadButton {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #00c853;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#downloadButton:hover {
+    background-color: #00a044;
+}
+
+a {
+    text-decoration: none;
+}
+
+@media (max-width: 600px) {
+    .topnav a {
+        float: none;
+        display: block;
+        text-align: left;
+    }
+    
+    .statement {
+        margin: 20px 10px;
+        padding: 20px;
+    }
+    
+    .submitfile form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .submitfile input[type="file"], #submitbutton {
+        width: 100%;
+        margin: 5px 0;
+    }
 }
