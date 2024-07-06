@@ -1,5 +1,31 @@
-.statement p {
-    font-size: 18px;
+/* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    min-height: 80px;
+
+    background-color: aliceblue;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s;
+}
+
+.dark-mode {
+    background-color: #2b2b2b;
+    color: #f4f4f9;
+}
+
+.statement {
+    margin: 20px auto;
+    margin-top: 120px;
+    max-width: 800px;
+    padding: 20px;
+    /* background-color: #f9f9f9; */
+    background: linear-gradient(to right, #ececec, #f9f9f9);
+
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, color 0.3s;
 }
 
 .statement h2 {
@@ -8,62 +34,106 @@
     font-family: sans-serif;
 }
 
-.limits {
-    text-align: center;
-    font-size: 10px;
-}
-
 .statement h3 {
     font-size: 25px;
+    text-align: center;
+    margin-top: 10px;
 }
 
-body {
-    background-color: aliceblue;
+.statement p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.limits {
+    text-align: center;
+    font-size: 14px;
+    margin-top: 10px;
 }
 
 .submitfile {
-    border-radius: 5px;
     width: fit-content;
     margin: auto;
-    align-content: center;
     text-align: center;
-    padding: 5px 5px;
+    padding: 10px;
     background-color: aquamarine;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
 }
 
-.submitfile input{
+.submitfile input {
     font-size: 15px;
     font-weight: bold;
+    padding: 8px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    transition: background-color 0.3s, color 0.3s;
 }
 
-.submitfile button{
+.submitfile button {
     display: block;
-    border-radius: 5px;
     width: 100%;
-    margin-top: 5px;
-    border: none;
-    background-color:mistyrose;
-    padding: 14px 28px;
-    font-size: 20px;
-    cursor: pointer;
-    text-align: center;
+    margin-top: 10px;
+    padding: 12px 24px;
+    font-size: 18px;
     font-weight: bold;
-    border-color: green;
-    border-style: solid;
     color: green;
+    background-color: mistyrose;
+    border: 1px solid green;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
 }
 
-.submitfile button:hover{
-    background-color:lightgreen;
+.submitfile button:hover {
+    background-color: lightgreen;
     color: black;
 }
 
-.verdict{
+.verdict {
     font-weight: bold;
     font-size: 20px;
+    text-align: center;
+    margin-top: 20px;
 }
 
-.verdict span{
-    color:red;
+.verdict span {
+    color: red;
 }
 
+/* Dark Mode Styles */
+
+.dark-mode body {
+    background-color: #2b2b2b;
+    color: #f4f4f9;
+}
+
+.dark-mode .statement {
+    background: linear-gradient(to right, #3a3a3a, #4a4a4a);
+    color: #f4f4f9;
+}
+
+.dark-mode .submitfile {
+    background-color: #556b2f;
+    color: #f4f4f9;
+}
+
+.dark-mode .submitfile input {
+    background-color: #333;
+    color: #f4f4f9;
+}
+
+.dark-mode .submitfile button {
+    background-color: #556b2f;
+    color: #f4f4f9;
+}
+
+.dark-mode .submitfile button:hover {
+    background-color: #6b8e23;
+    color: black;
+}
+
+#darkModeToggle {
+    padding-left: 1335px;
+}
