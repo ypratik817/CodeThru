@@ -1,49 +1,92 @@
+/* common.css */
 body {
-    background-image: url("./LoginPage.jpg");
-}
-
-html, body{
-    overflow:initial !important;
-}
-
-body {
+    font-family: Arial, sans-serif;
+    background: #f4f4f9;
     margin: 0;
     padding: 0;
-    font-family: montserrat;
-    background: linear-gradient(120deg,#2980b9,#8e44ad);
-    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.topnav {
+    width: 100%;
+    background: linear-gradient(to right, #ececec, #f9f9f9);
     overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    padding: 0 20px;
+    height: 60px;
+    align-items: center;
+}
+
+.topnav a {
+    display: block;
+    color: #333;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+    font-size: 17px;
+    transition: background-color 0.3s, color 0.3s, transform 0.2s;
+}
+
+.topnav a:hover {
+    background-color: #d1d1d1;
+    color: #333;
+    transform: translateY(-2px);
+}
+
+.topnav img {
+    cursor: pointer;
+    transition: filter 0.3s;
+}
+
+.topnav img:hover {
+    filter: brightness(0.8);
 }
 
 .center {
-    position: absolute;
-    top: 50%;
-    left:50%;
-    transform: translate(-50%, -50%);
-    width: 400px ;
+    position: relative;
+    top: 100px;
     background: white;
     border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    margin: 20px;
+    width: calc(100% - 40px);
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: background 0.3s, box-shadow 0.3s;
 }
 
-.center h1{
+.center h1 {
     text-align: center;
     padding: 0px 0px 20px 0px;
     border-bottom: 1px solid silver;
 }
 
-.center form{
+.center form {
     padding: 0px 40px;
     box-sizing: border-box;
 }
 
-form .txt{
+form .txt {
     position: relative;
     border-bottom: 2px solid #adadad;
     margin: 30px 0px;
 }
 
-.txt input{
-    width:  100%;
+.txt input {
+    width: 100%;
     padding: 0px 5px;
     height: 40px;
     font-size: 16px;
@@ -52,7 +95,7 @@ form .txt{
     outline: none;
 }
 
-.txt label{
+.txt label {
     position: absolute;
     top: 130%;
     left: 5px;
@@ -62,21 +105,22 @@ form .txt{
     pointer-events: none;
 }
 
-.pass{
+.pass {
     margin: -5px 0px 20px 5px;
     color: #a6a6a6;
     cursor: pointer;
 }
 
-.passs:hover{
+.pass:hover {
     text-decoration: underline;
 }
 
-input[type="submit"]{
+input[type="submit"] {
     width: 100%;
     height: 50px;
-    border: 1px solid;
-    background: #2691d9;
+    border: 1px solid #4CAF50;
+    /* background: #2691d9; */
+    background: #4CAF50;
     border-radius: 25px;
     font-size: 18px;
     color: #e9f4fb;
@@ -85,23 +129,78 @@ input[type="submit"]{
     outline: none;
 }
 
-input[type="submit"]:hover{
-    border-color: #2691d9;
+input[type="submit"]:hover {
+    /* border-color: #2691d9; */
+    background: #4CAF50;
     transition: 0.5s;
 }
 
-.change{
+.change {
     margin: 30px 0px;
     text-align: center;
     font-size: 16px;
-    color: #666666;
+    color: #969393;
 }
 
-.change a{
+.change a {
     color: #2691d9;
-    text-decoration: none; 
+    text-decoration: none;
 }
 
-.change a:hover{
+.change a:hover {
     text-decoration: underline;
+}
+
+/* Dark mode styles */
+body.dark-mode {
+    background: #2b2b2b;
+    color: #f4f4f9;
+}
+
+.topnav.dark-mode {
+    background: linear-gradient(to right, #3a3a3a, #4a4a4a);
+}
+
+.topnav.dark-mode a {
+    color: #f4f4f9;
+}
+
+.topnav.dark-mode a:hover {
+    background-color: #575757;
+    color: #f4f4f9;
+}
+
+.topnav img.dark-mode {
+    filter: invert(1);
+}
+
+.center.dark-mode {
+    background: #3a3a3a;
+    color: #f4f4f9;
+}
+
+form .txt.dark-mode input {
+    color: #f4f4f9;
+}
+
+form .txt.dark-mode label {
+    color: #adadad;
+}
+
+input[type="submit"].dark-mode {
+    background: #556b2f;
+    border: 1px solid #556b2f;
+
+}
+
+input[type="submit"].dark-mode:hover {
+    background: #6b8e23;
+}
+
+.change.dark-mode a {
+    color: #8e44ad;
+}
+
+#darkModeToggle {
+    padding-left: 1135px;
 }
