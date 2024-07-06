@@ -1,119 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Home</title>
-        <link rel="stylesheet" href="./navbar.css" />
-        <link rel="stylesheet" href="./sign.css" />
-        <link rel="stylesheet" href="./homeprob.css" />
-        <link rel="stylesheet" href="./problem.css" />
-    </head>
-    <body>
-        <div class="topnav">
-            <a id="homeLink" href="./homepage">Home</a>
-            <a id="loginLink" href="./login">Login</a>
-            <a id="registerLink" href="./register">Register</a>
-            <a id="username" style="display: none;"></a>
-            <a id="logoutLink" style="display: none;" href="#">Logout</a>
-        </div>
 
-        <br />
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <!-- <link rel="stylesheet" href="./navbar.css" /> -->
+    <!-- <link rel="stylesheet" href="./sign.css" /> -->
+    <link rel="stylesheet" href="./homeprob.css" />
+    <link rel="stylesheet" href="./darkmode.css" />
+    <!-- <link rel="stylesheet" href="./problem.css" /> -->
+</head>
 
-        <div class="problem" onclick=" location.href = './prob1'; ">
-            <span class="problemName">Hello World</span>
-            <button type="submit" class="submitButton">Solve</button>
-        </div>
+<body>
+    <div class="topnav">
+        <a id="homeLink" href="./homepage">Home</a>
+        <a id="loginLink" href="./login">Login</a>
+        <a id="registerLink" href="./register">Register</a>
+        <a id="username" style="display: none;"></a>
+        <a id="logoutLink" style="display: none;" href="#">Logout</a>
+        <!-- <button id="darkModeToggle" style="margin-left:auto;">Toggle Dark Mode</button> -->
+        <!-- <!-- <img id="darkModeToggle" src="./light-mode-icon.png" width="22px" alt="Dark Mode Toggle" style="margin-left:10px;" onclick="toggleDarkMode()"> -->
+        <img id="darkModeToggle" src="./light-mode-icon.png" width="40px" height="28px" style="margin:auto;"
+            style="padding-left: 1150px;" }alt="Dark Mode Toggle" onclick="toggleDarkMode()">
+    </div>
 
-        <div class="problem" onclick=" location.href = './prob2'; ">
-            <span class="problemName">Add Two Numbers</span>
-            <button type="submit" class="submitButton">Solve</button>
-        </div>
+    <br />
 
-        <div class="problem" onclick=" location.href = './prob3'; ">
-            <span class="problemName">Find Maximum Element</span>
-            <button type="submit" class="submitButton">Solve</button>
-        </div>
+    <div class="problem">
+        <span class="problemName">Hello World</span>
+        <button type="submit" class="submitButton" onclick=" location.href = './prob1'; ">Solve</button>
+    </div>
 
-        <div class="problem" onclick=" location.href = './prob4'; ">
-            <span class="problemName">Actual CP Problem</span>
-            <button type="submit" class="submitButton">Solve</button>
-        </div>
+    <div class="problem">
+        <span class="problemName">Add Two Numbers</span>
+        <button type="submit" class="submitButton" onclick=" location.href = './prob2'; ">Solve</button>
+    </div>
+
+    <div class="problem">
+        <span class="problemName">Find Maximum Element</span>
+        <button type="submit" class="submitButton" onclick=" location.href = './prob3'; ">Solve</button>
+    </div>
+
+    <div class="problem">
+        <span class="problemName">Actual CP Problem</span>
+        <button type="submit" class="submitButton" onclick=" location.href = './prob4'; ">Solve</button>
+    </div>
 
 
-        <script>
-            // JavaScript code to check login status and update UI
-            var loggedIn = false;
-            var currUsername = null;
-    
-            function checkLoginStatus() {
-                fetch("/isLoggedIn")
-                    .then((response) => response.json())
-                    .then((data) => {
-                        const { loggedIn, username } = data;
-                        const homeLink = document.getElementById("homeLink");
-                        const loginLink = document.getElementById("loginLink");
-                        const registerLink = document.getElementById("registerLink");
-                        const usernameElement = document.getElementById("username");
-                        const logoutLink = document.getElementById("logoutLink");
-    
-                        if (loggedIn) {
-                            // User is logged in
-                            homeLink.style.display = "block";
-                            loginLink.style.display = "none";
-                            registerLink.style.display = "none";
-                            usernameElement.innerText = username;
-                            usernameElement.style.display = "inline";
-                            logoutLink.style.display = "inline";
+    <script>
+        // JavaScript code to check login status and update UI
+        var loggedIn = false;
+        var currUsername = null;
 
-                            fetch(`/api/user/${username}`)
+        function checkLoginStatus() {
+            fetch("/isLoggedIn")
+                .then((response) => response.json())
+                .then((data) => {
+                    const { loggedIn, username } = data;
+                    const homeLink = document.getElementById("homeLink");
+                    const loginLink = document.getElementById("loginLink");
+                    const registerLink = document.getElementById("registerLink");
+                    const usernameElement = document.getElementById("username");
+                    const logoutLink = document.getElementById("logoutLink");
+
+                    if (loggedIn) {
+                        // User is logged in
+                        homeLink.style.display = "block";
+                        loginLink.style.display = "none";
+                        registerLink.style.display = "none";
+                        usernameElement.innerText = username;
+                        usernameElement.style.display = "inline";
+                        logoutLink.style.display = "inline";
+
+                        fetch(`/api/user/${username}`)
                             .then((response) => response.json())
                             .then((data) => {
                                 const { loggedIn, username, solvedProblems } = data;
 
-                            // Update problem background based on solvedProblems array
-                            updateProblemBackground(solvedProblems);
+                                // Update problem background based on solvedProblems array
+                                updateProblemBackground(solvedProblems);
                             })
-                            .catch((err)=> {
+                            .catch((err) => {
                                 console.err("Error fetching user data:", err);
                             });
-                        } else {
-                            // User is not logged in
-                            homeLink.style.display = "none";
-                            loginLink.style.display = "block";
-                            registerLink.style.display = "block";
-                            usernameElement.style.display = "none";
-                            logoutLink.style.display = "none";
-                        }
-                    })
-                    .catch((err) => {
-                        console.err("Error fetching login status:", error);
-                    });
-            }
-
-            function updateProblemBackground(userSolvedProblems) {
-                const problemDivs = document.querySelectorAll(".problem");
-                problemDivs.forEach((problemDiv, index) => {
-                    if (userSolvedProblems[index]) {
-                        // Problem is solved by the user, change the background color
-                        problemDiv.style.backgroundColor = "lightgreen";
+                    } else {
+                        // User is not logged in
+                        homeLink.style.display = "none";
+                        loginLink.style.display = "block";
+                        registerLink.style.display = "block";
+                        usernameElement.style.display = "none";
+                        logoutLink.style.display = "none";
                     }
-                });
-            }
-    
-            document.getElementById("logoutLink").addEventListener("click", () => {
-                fetch("/logOut", {
-                    method: "PUT"
                 })
-                loggedIn = false;
-                currUsername = null;
-                checkLoginStatus();
-            });
-    
-            // Calling the function to check login status when the page loads
-            checkLoginStatus();
-        </script>
+                .catch((err) => {
+                    console.err("Error fetching login status:", error);
+                });
+        }
 
-          
-    </body>
+        function updateProblemBackground(userSolvedProblems) {
+            const problemDivs = document.querySelectorAll(".problem");
+            problemDivs.forEach((problemDiv, index) => {
+                if (userSolvedProblems[index]) {
+                    // Problem is solved by the user, change the background color
+                    problemDiv.style.backgroundColor = "lightgreen";
+                }
+            });
+        }
+
+        document.getElementById("logoutLink").addEventListener("click", () => {
+            fetch("/logOut", {
+                method: "PUT"
+            })
+            loggedIn = false;
+            currUsername = null;
+            checkLoginStatus();
+        });
+
+        // Dark mode toggle
+        const darkModeToggle = document.getElementById("darkModeToggle");
+        darkModeToggle.addEventListener("click", () => {
+            document.body.classList.toggle("dark-mode");
+            document.querySelector(".topnav").classList.toggle("dark-mode");
+            document.querySelectorAll(".problem").forEach(el => el.classList.toggle("dark-mode"));
+            document.querySelectorAll(".submitButton").forEach(el => el.classList.toggle("dark-mode"));
+            document.querySelectorAll(".problemName").forEach(el => el.classList.toggle("dark-mode"));
+        });
+
+        // Calling the function to check login status when the page loads
+        checkLoginStatus();
+    </script>
+
+
+</body>
+
 </html>
