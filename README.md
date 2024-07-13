@@ -17,7 +17,7 @@ git clone https://github.com/ypratik817/CodeThru.git
 node auth.js
 ```
 
-6. Access the site in your browser at `http://localhost:8000`.
+6. Access the site in your browser at `http://localhost:3000`.
 
 ## Usage
 
