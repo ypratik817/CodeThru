@@ -1,0 +1,279 @@
+:root {
+    --primary: #6366f1;
+    --primary-hover: #4f46e5;
+    --background: #f8fafc;
+    --text: #0f172a;
+    --card-bg: rgba(255, 255, 255, 0.9);
+    --nav-bg: rgba(255, 255, 255, 0.8);
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    --border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  
+  [data-theme="dark"] {
+    --background: #0f172a;
+    --text: #f8fafc;
+    --card-bg: rgba(15, 23, 42, 0.9);
+    --nav-bg: rgba(15, 23, 42, 0.8);
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+    --border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: 'Inter', system-ui, -apple-system;
+    background: var(--background);
+    color: var(--text);
+    min-height: 100vh;
+    transition: all 0.3s ease;
+  }
+  
+  /* Modern Navigation */
+  .navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: var(--nav-bg);
+    backdrop-filter: blur(10px);
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    box-shadow: var(--shadow);
+    z-index: 1000;
+  }
+  
+  .nav-links {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-left: auto;
+  }
+  
+  .nav-link {
+    color: var(--text);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+  }
+  
+  .nav-link:hover {
+    background: var(--primary);
+    color: white;
+  }
+  
+  .theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: grid;
+    place-items: center;
+    transition: all 0.3s ease;
+  }
+  
+  .theme-toggle:hover {
+    background: var(--primary);
+  }
+  
+  /* Main Content */
+  .main-content {
+    margin-top: 80px;
+    padding: 2rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  /* Problem Cards */
+  .problem-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+    justify-items: center; /* Add this */
+  }
+  
+  .problem-card {
+    /* Add these */
+    display: flex;
+    flex-direction: column;
+    min-height: 200px;
+  }
+  
+  .problem-card .submit-btn {
+    margin-top: auto;
+    margin-bottom: auto; /* Pushes button to bottom */
+    width: fit-content;
+  }
+  
+  .problem-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .problem-card h3 {
+    color: var(--primary);
+    margin-bottom: 1rem;
+  }
+  
+  /* Forms */
+  .auth-form {
+    max-width: 400px;
+    margin: 100px auto 2rem;
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: var(--shadow);
+    border: var(--border);
+  }
+  
+  .form-input {
+    width: 100%;
+    padding: 0.75rem;
+    margin: 0.75rem 0;
+    border: var(--border);
+    border-radius: 0.5rem;
+    background: transparent;
+    color: var(--text);
+    transition: all 0.3s ease;
+  }
+  
+  .form-input:focus {
+    outline: none;
+    border-color: var(--primary);
+  }
+  
+  .submit-btn {
+    background: var(--primary);
+    color: white;
+    width: 100%;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+  
+  .submit-btn:hover {
+    background: var(--primary-hover);
+  }
+  
+  /* Problem Page */
+  .problem-header {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .code-submission {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: var(--shadow);
+  }
+  
+  .verdict {
+    margin-top: 1rem;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    text-align: center;
+  }
+  
+  .verdict.ac {
+    background: #05966920;
+    color: #059669;
+  }
+  
+  .verdict.wa {
+    background: #dc262620;
+    color: #dc2626;
+  }
+
+  .problem-card pre {
+    font-size: 1rem;
+    padding: 1rem;
+    background: var(--card-bg);
+    border-radius: 0.5rem;
+    border: var(--border);
+    margin: 1rem 0;
+    overflow-x: auto;
+  }
+  
+  .problem-meta {
+    display: flex;
+    gap: 1.5rem;
+    margin: 1rem 0;
+    flex-wrap: wrap;
+  }
+
+
+.problem-card {
+    display: flex;
+    flex-direction: column;
+    min-height: 220px; 
+    padding: 2rem; 
+  }
+  
+  .problem-card h3 {
+    margin-bottom: 0.5rem;
+  }
+  
+  .problem-card p {
+    line-height: 1.6;
+    flex-grow: 1;
+  }
+  
+
+  .problem-card h3 + p,
+  .problem-card h3 + pre {
+    font-size: 1rem;
+    padding: 1.2rem;
+    background: var(--card-bg);
+    border-radius: 0.8rem;
+    border: var(--border);
+    margin: 1rem 0;
+    overflow-x: auto;
+    font-family: 'Courier New', monospace;
+    line-height: 1.5;
+  }
+  
+  .problem-card pre {
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+  
+  .problem-meta {
+    display: flex;
+    gap: 2rem;
+    margin: 1.5rem 0;
+    padding: 0.5rem 0;
+    border-bottom: var(--border);
+    flex-wrap: wrap;
+  }
+  
+  .problem-grid {
+    justify-items: stretch;
+    align-items: start; 
+  }
+  
+  /* Button Alignment */
+  .submit-btn {
+    margin-top: auto;
+    align-self: flex-start; 
+    padding: 0.8rem 1.5rem;
+  }

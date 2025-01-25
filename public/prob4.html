@@ -1,28 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wrong Subtraction</title>
-    <!-- <link rel="stylesheet" href="./navbar.css"> -->
-    <link rel="stylesheet" href="./homeprob.css">
-    <link rel="stylesheet" href="./prob.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wrong Subtraction - CodeThru</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
-<div class="topnav">
-    <a href="./homepage">Home</a>
-    <img id="darkModeToggle" src="./light-mode-icon.png" width="40px" height="28px" style="margin:auto;"
-        style="padding-left: 1150px;" }alt="Dark Mode Toggle" onclick="toggleDarkMode()">
-</div>
+<body>
+  <main class="main-content">
+    <article class="problem-header">
+      <h1>Wrong Subtraction</h1>
+      <div class="problem-meta">
+        <span>⭐ Difficulty: Medium</span>
+        <span>⏳ Time Limit: 1s</span>
+        <span>💾 Memory Limit: 256MB</span>
+      </div>
+    </article>
 
-<div class="statement">
-    <h2 id="problemStatement">Wrong Subtraction</h2>
-    <p class="limits">Time Limit : 1 second</p>
-    <p class="limits">Memory Limit : 256 MB</p>
-
-    <br>
-
-    <p>Little girl Tanya is learning how to decrease a number by one, but she does it wrong with a number consisting of
+    <section class="problem-card">
+      <h2>Problem Statement</h2>
+      <p>Little girl Tanya is learning how to decrease a number by one, but she does it wrong with a number consisting of
         two or more digits. Tanya subtracts one from a number by the following algorithm:
 
         if the last digit of the number is non-zero, she decreases the number by one;
@@ -33,89 +30,30 @@
         subtractions.
 
         It is guaranteed that the result will be positive integer number.</p>
-
-    <h3 class="io">Input</h3>
-    <p>The first line of the input contains two integer numbers n
+      
+      <h3>Input</h3>
+      <p>The first line of the input contains two integer numbers n
         and k
         (2≤n≤10<sup>9</sup>
         , 1≤k≤50
         ) — the number from which Tanya will subtract and the number of subtractions correspondingly.</p>
-
-    <h3 class="io">Output</h3>
-    <p>Print one integer number — the result of decreasing n
+      
+      <h3>Output</h3>
+      <pre>Print one integer number — the result of decreasing n
         by one k
         times.
 
-        It is guaranteed that the result will be a positive integer. </p>
-</div>
+        It is guaranteed that the result will be a positive integer. </pre>
+    </section>
 
-<br>
-
-<div class="submitfile">
-    <form enctype="multipart/form-data">
-        <input type="file" id="myFile" name="code">
-        <button type="submit" id="submitbutton">Submit C++ File</button>
-    </form>
-</div>
-
-<div class="verdict">
-    <p>Verdict : <span id="verdict">-</span></p>
-</div>
-
-<script>
-    const submitButton = document.getElementById('submitbutton');
-    const verdictSpan = document.getElementById('verdict');
-
-    submitButton.addEventListener('click', async (event) => {
-        event.preventDefault();
-        const formData = new FormData();
-        formData.append('code', document.getElementById('myFile').files[0]);
-
-        const response = await fetch('/prob4Submit', {
-            method: 'POST',
-            body: formData,
-        });
-
-        const data = await response.json();
-        verdictSpan.textContent = data.verdict;
-        if (data.verdict == "AC")
-            verdictSpan.style.color = 'green';
-        console.log(data.verdict);
-    });
-</script>
-
-<br>
-
-<h3 class="io">Sample Solution</h3>
-<button id="downloadButton">Download</button>
-
-<script>
-    // JavaScript code to handle download button click
-    document.getElementById("downloadButton").addEventListener("click", function () {
-        downloadFile();
-    });
-
-    function downloadFile() {
-        var fileUrl = './sample4.cpp';
-        var fileName = 'wrongsub.cpp';
-
-        var a = document.createElement('a');
-        a.href = fileUrl;
-        a.download = fileName;
-        a.click();
-    }
-
-    const darkModeToggle = document.getElementById("darkModeToggle");
-    darkModeToggle.addEventListener("click", () => {
-        document.body.classList.toggle("dark-mode");
-        document.querySelector(".topnav").classList.toggle("dark-mode");
-        document.querySelectorAll(".problem").forEach(el => el.classList.toggle("dark-mode"));
-        document.querySelectorAll(".submitButton").forEach(el => el.classList.toggle("dark-mode"));
-        document.querySelectorAll(".problemName").forEach(el => el.classList.toggle("dark-mode"));
-    });
-</script>
-
-
+    <section class="code-submission">
+      <form enctype="multipart/form-data" data-problem="4">
+        <input type="file" class="form-input" name="code" accept=".cpp" required>
+        <button type="submit" class="submit-btn">Submit Solution</button>
+      </form>
+      <div class="verdict" id="verdict">-</div>
+    </section>
+  </main>
+  <script src="script.js"></script>
 </body>
-
 </html>
